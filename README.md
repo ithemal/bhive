@@ -2,7 +2,7 @@
 
 What's here?
 * `categories.csv` lists all the basic blocks and their categories.
-* `throughput/` contains the measured throughput of their basic blocks. The throughput of some basic blocks are missing because we can't get a clean measurement.
+* `throughput/` contains the measured throughput of basic blocks. The throughput of some basic blocks are missing because we can't get a clean measurement.
 * `sources/` lists the source applications of all the basic blocks. For each basic block, we additionally show the (static) frequency with which it shows up in an application.
 * `disasm` is a tool that disassembles hex representation of a basic block. Use it like this `./disasm 85c044897c2460`. It uses `llvm-mc` and assumes that you have `llvm` installed.
 
