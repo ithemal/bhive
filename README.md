@@ -7,5 +7,3 @@ What's here?
 * `disasm` is a tool that disassembles hex representation of a basic block. Use it like this `./disasm 85c044897c2460`. It uses `llvm-mc` and assumes that you have `llvm` installed.
 
 Furthermore, if you want to measure the throughput of a basic block yourself, you can use our [profiler](https://github.com/ithemal/timing-harness).
-
-![Worker Bee](/images/worker_bee.jpg)
