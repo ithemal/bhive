@@ -17,7 +17,7 @@ Yishen Chen, Ajay Brahmakshatriya, Charith Mendis, Alex Renda, Eric Atkinson, On
 
 ```
 @inproceedings{bhive,
-  title={2019 IEEE International Symposium on Workload Characterization},
+  title={BHive: A Benchmark Suite and Measurement Framework for Validating x86-64 Basic Block Performance Models},
   author={Chen, Yishen and Brahmakshatriya, Ajay and Mendis,  Charith and Renda, Alex and Atkinson, Eric and Sykora, Ondrej and Amarasinghe, Saman and Carbin, Michael},
   booktitle={2019 IEEE international symposium on workload characterization (IISWC)},
   year={2019},
