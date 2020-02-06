@@ -25,3 +25,13 @@ What's here?
 
 # Basic Block Profiler
 `timing-harness/` is a profiler that allows you to profile arbitrary, memory accessing basic blocks such as those in `sources/`.
+
+# Throughput Calculation
+* The unit of the throughput numbers in the directory `benchmark/throughput*` is cycles per hundred-iterations. 
+* The profiler in `timing-harness` only produces an unrolled basic block's latency---including measurement overhead.
+To get the final throughput, numbers in `benchmark/throughput*` is calculated as `(L_a-L_b)/(a-b)`,
+where `a` and `b` are two integer unroll factors (`a > b`) and `L_a`, `L_b` are the the latency of the basic block unrolled `a` and `b` times respectively.
+* Measurements from the profiler can have noise.
+The published paper uses the minimum of the measured latencies as the final latency of an unrolled basic block,
+and the numbers in the master branch are produced using the same methodology.
+* The profiler sometimes produces small, spurious latency. Using the median is more stable in this case, and the throughputs are retabulated in a separate [branch](https://github.com/ithemal/bhive/tree/fix).
