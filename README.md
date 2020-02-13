@@ -37,9 +37,9 @@ and the numbers in the master branch are produced using the same methodology.
 * The profiler sometimes produces small, spurious latency. Using the median is more stable in this case, and the throughputs are retabulated in a separate [branch](https://github.com/ithemal/bhive/tree/fix).
 
 # Known Issues
-## Measuring Frontend-bound Basic Blocks
-The profiler measures throughput by unrolling a basic block and measures the elapsed cycles for the unrolled basic blocks. 
-The measurements therefore includes the time that it takes the frontend to decode the instruction.
+## Measuring Frontend-Bound Basic Blocks
+The profiler measures throughput by unrolling the input basic block and measures the cycles it takes to execute the unrolled basic blocks. 
+The measurements therefore include the time it takes the frontend to decode the instruction.
 
-This is not an issue for basic blocks that are bound by the backend. However when measuring small basic blocks with high
-throughput (especially ones that do not go to the backend) our methodology currently gives an incorrect (higher) measurement that violates the assumption that the frontend is not involved in the steady execution state. Notable instances of frontend-bound basic blocks are those with single comparison instruction.
+When measuring small basic blocks with high
+throughput (especially ones that get resolved in the frontend) our methodology currently gives an incorrect (higher) measurement invalidating the assumption that the frontend is not involved in the steady execution state. Notable instances of frontend-bound basic blocks are those with single comparison instruction.
