@@ -35,3 +35,14 @@ where `a` and `b` are two integer unroll factors (`a > b`) and `L_a`, `L_b` are 
 The published paper uses the minimum of the measured latencies as the final latency of an unrolled basic block,
 and the numbers in the master branch are produced using the same methodology.
 * The profiler sometimes produces small, spurious latency. Using the median is more stable in this case, and the throughputs are retabulated in a separate [branch](https://github.com/ithemal/bhive/tree/fix).
+
+# Page Aliasing
+Our profiling methodology relies on mapping potentially large number of
+virtual pages to a small set of physical pages.
+This is problematic when two memory accesses access different virtual
+addresses alised to the same physical ones, creating spurious memory dependence
+and slow down the basic block unnecessarily.
+We haven't been able to use hardware counters to detect page aliasing reliably,
+so we tracked the trace of loads and stores occured during profiling
+and conservatively mark basic blocks that *could* have been affected.
+These basic blocks are listed in `benchmark/may-alias.csv`.
