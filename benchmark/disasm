@@ -13,7 +13,7 @@ def disassemble(hex, output_intel_syntax):
   
   cmd = 'echo %s | llvm-mc -disassemble -output-asm-variant=%d' % (' '.join(args), syntax_id)
   stdout = subprocess.check_output(cmd, shell=True)
-  return stdout
+  return stdout.decode('utf8')
 
 if __name__ == '__main__':
   import argparse
